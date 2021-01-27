@@ -68,7 +68,7 @@ GEM
     autoprefixer-rails (10.2.0.0)
       execjs
     aws-eventstream (1.1.0)
-    aws-partitions (1.419.0)
+    aws-partitions (1.420.0)
     aws-sdk-core (3.111.2)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -156,7 +156,7 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    msgpack (1.4.0)
+    msgpack (1.4.1)
     nenv (0.3.0)
     nio4r (2.5.4)
     nokogiri (1.11.1-x86_64-linux)

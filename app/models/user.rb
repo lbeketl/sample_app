@@ -8,10 +8,12 @@ class User < ApplicationRecord
         format: { with: VALID_EMAIL_REGEX},
         uniqueness: { case_sensitive: false})
     has_secure_password
-    validates :password, length: { minimum: 6 }
+    validates :password, length: { minimum: 6 }, allow_blank: true
     
     # Повертає дайдест для даного рядка
-    def User.digest(string)
+    #class << self
+
+    def self.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ?
         BCrypt::Engine::MIN_COST :
         BCrypt::Engine.cost
@@ -19,7 +21,7 @@ class User < ApplicationRecord
         end
     
     #Повертає випадковий токен
-    def User.new_token
+    def self.new_token
         SecureRandom.urlsafe_base64
     end
 

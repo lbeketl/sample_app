@@ -13,6 +13,7 @@ module SessionsHelper
 
   # Returns the current logged-in user (if any).
   def current_user
+  
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
     elsif (user_id = cookies.signed[:user_id])
@@ -24,6 +25,12 @@ module SessionsHelper
       end
       end
   end
+
+   # Returns true if the given user is the current user.
+  def current_user?(user)
+    user == current_user
+  end
+
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
@@ -40,8 +47,20 @@ module SessionsHelper
   # Logs out the current user.
   def log_out
     # reset_session
+    forget(current_user)
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  # Перенаправить по сохраненному адресу или на страницу по умолчанию.
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Запоминает URL.
+  def store_location
+    session[:forwarding_url] = request.url if request.get?
   end
   
 

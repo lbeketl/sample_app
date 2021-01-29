@@ -1,11 +1,14 @@
 module SessionsHelper
-#Вхід даного користувачв
+
+  # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
+    # Guard against session replay attacks.
+    # See https://bit.ly/33UvK0w for more.
     session[:session_token] = user.session_token
   end
 
-  # Запоминает пользователя в постоянном сеансе.
+  # Remembers a user in a persistent session.
   def remember(user)
     user.remember
     cookies.permanent.encrypted[:user_id] = user.id
@@ -26,18 +29,17 @@ module SessionsHelper
     end
   end
 
-   # Returns true if the given user is the current user.
+  # Returns true if the given user is the current user.
   def current_user?(user)
     user == current_user
   end
-
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !current_user.nil?
   end
 
-  # Закриває постійну сесію.
+  # Forgets a persistent session.
   def forget(user)
     user.forget
     cookies.delete(:user_id)
@@ -46,22 +48,13 @@ module SessionsHelper
 
   # Logs out the current user.
   def log_out
-    # reset_session
     forget(current_user)
-    session.delete(:user_id)
+    reset_session
     @current_user = nil
   end
 
-  # Перенаправить по сохраненному адресу или на страницу по умолчанию.
-  def redirect_back_or(default)
-    redirect_to(session[:forwarding_url] || default)
-    session.delete(:forwarding_url)
-  end
-
-  # Запоминает URL.
+  # Stores the URL trying to be accessed.
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
-  
-
 end

@@ -3,7 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',                      '6.1.0'
 gem 'image_processing',           '1.9.3'
+gem 'carrierwave',                '~> 0.11.2'
 gem 'mini_magick',                '4.9.5'
+# gem 'fog',                        '2.2.0'
 gem 'active_storage_validations', '0.8.9'
 gem 'bcrypt',                     '3.1.13'
 gem 'faker',                      '2.11.0'
@@ -44,5 +46,5 @@ end
 group :production do
   #gem 'pg'
   gem 'rails_12factor'
-  gem 'aws-sdk-s3', '1.87.0', require: false
+  # gem 'aws-sdk-s3', '1.87.0', require: false
 end

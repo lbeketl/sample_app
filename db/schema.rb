@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_01_31_192017) do
+=======
+ActiveRecord::Schema.define(version: 2021_01_30_002412) do
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -21,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_01_31_192017) do
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
+<<<<<<< HEAD
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
@@ -31,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_01_31_192017) do
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
+=======
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
 
   create_table "users", force: :cascade do |t|
     t.string "name"

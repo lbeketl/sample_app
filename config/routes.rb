@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :relationships, only: [:create, :destroy]
+=======
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
 =======
 >>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
 end

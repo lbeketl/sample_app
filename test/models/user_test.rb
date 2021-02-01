@@ -78,6 +78,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 <<<<<<< HEAD
+<<<<<<< HEAD
 
   test "should follow and unfollow a user" do
     beket = users(:beket)
@@ -107,6 +108,8 @@ class UserTest < ActiveSupport::TestCase
       assert_not beket.feed.include?(post_unfollowed)
       end
     end
+=======
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
 =======
 >>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
 end

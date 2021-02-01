@@ -6,6 +6,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   # end
   def setup
 <<<<<<< HEAD
+<<<<<<< HEAD
     @user = users(:beket)
   end
 
@@ -32,6 +33,8 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_match content, response.body
 
 =======
+=======
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
     @user = users(:michael)
   end
 
@@ -51,12 +54,16 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url follow_redirect!
     assert_match content, response.body
     # Удаление сообщения.
+<<<<<<< HEAD
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
+=======
 >>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
     assert_select 'a', text: 'delete'
     first_micropost = @user.microposts.paginate(page: 1).first
     assert_difference 'Micropost.count', -1 do
       delete micropost_path(first_micropost)
     end
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     get user_path(users(:archer))
@@ -77,9 +84,14 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_match /A micropost/, response.body
   end
 =======
+=======
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
     # Переход в профиль другого пользователя.
     get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
   end
+<<<<<<< HEAD
+>>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
+=======
 >>>>>>> 5fc102a9aaa073da05411e7e175123361bf596ee
 end

@@ -1,0 +1,15 @@
+one:
+  follower: beket
+  followed: lana
+
+two:
+  follower: beket
+  followed: mallory
+
+three:
+  follower: lana
+  followed: beket
+
+four:
+  follower: archer
+  followed: beket
